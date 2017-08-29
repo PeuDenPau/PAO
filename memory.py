@@ -1,4 +1,5 @@
 
+
 from tkinter import *
 import tkinter.messagebox
 import random
@@ -158,13 +159,13 @@ class marathon:
 
 	def play(self):
 		if self.in_Bucle == True:
-			print(isinstance(self.counter_Field.get(),long))
-			if  isinstance(self.counter_Field.get(),int)==True:
+			try:
+				int(self.counter_Field.get())
 				self.Play_Button.grid_forget()
 				self.Stop_Button.grid(row=3,column=2)
 				self.next()
 				root.after(self.counter_Field.get(), self.play)
-			else:
+			except:
 				tkinter.messagebox.showerror("ERROR", "You should enter a miliseconds time for the interval. Try again!")
 
 	def stop(self):
